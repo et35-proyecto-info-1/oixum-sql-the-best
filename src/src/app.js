@@ -22,11 +22,7 @@ app.post('/', function(req, res) {
 
     res.render('home', {
       resultados: JSON.stringify(results),
-      id: JSON.stringify(results, [ 'id']),
-      nombre: JSON.stringify(results, [ 'nombre' ]),
-      comida: JSON.stringify(results, ['comidaPreferida' ]),
-      fecha: JSON.stringify(results, ['fechaNacimiento' ]),
-      columnas: JSON.stringify(fields, [ 'name' ]),
+      columnas: JSON.stringify(fields),
       error: error,
       text: query
 

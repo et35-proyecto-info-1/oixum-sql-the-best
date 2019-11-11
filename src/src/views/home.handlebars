@@ -8,26 +8,18 @@
 {{#if resultados}}
 <h3>Resultados</h3>
 
+
 <table>
-  <tr>
-    {{#if id}}
-    <th >{{ id }}</th>
-    {{/if}}
-
-    {{#if nombre}}
-    <th>{{ nombre }}</th>
-      {{/if}}
-
-    {{#if comida}}
-    <th>{{ comida }}</th>
-  {{/if}}
-
-      {{#if fecha}}
-      <th>{{ fecha }}</th>
-        {{/if}}
-  </tr>
-
+  <thead>
+    {{#each columnas}}
+     <th>
+      {{this.name}}
+    </th>
+    {{/each}}
+  </thead>
 </table>
+
+
 {{/if}}
 
 
