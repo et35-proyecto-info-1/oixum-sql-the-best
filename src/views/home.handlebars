@@ -1,143 +1,117 @@
-<style>
-
-body{
+style.
+  body{
   background-color: LightSkyBlue;
-
-}
-
- form {
- width: 450px;
- margin: auto;
- background: cornsilk;
- padding: 10px 20px;
- box-sizing: border-box;
- margin-top: 20px;
-
-
- }
-
-.head{
+  }
+  form {
+  width: 450px;
+  margin: auto;
+  background: cornsilk;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  }
+  .head{
   background-color: lavender;
   padding: 20px
-
-}
-
-.body{
-
+  }
+  .body{
   background-color: LavenderBlush;
-}
-
-textarea{
+  }
+  textarea{
   min-height: 100px;
   max-height: 200px;
   max-width: 100%;
   min-width: 100%;
-}
-
-.msjError {
+  }
+  .msjError {
   color: white;
-}
-.cajaError{
+  }
+  .cajaError{
   text-align: center;
   margin: 5em;
-  background-color: rgb(255, 0, 129);
+  background-color:rgb(73,159,218) ;
   border-radius: 1em;
   padding-bottom: 1em;
-}
-
-.cajaResultados{
+  }
+  .cajaResultados{
   text-align: center;
   border-radius: 1em;
   padding-bottom: 1em;
-}
-
-button{
-  border: none;
+  }
+  button{
+  border-radius: 1em;
   background: rgb(0,103,164);
   height: 4em;
-  width: 100%;
+  width: 70%;
   color: white;
   font-size: 18px;
   font-family: 'Heebo', sans-serif;
-}
-button:hover{
+  }
+  button:hover{
   cursor: pointer;
-}
- input,textarea {
- width: 100%;
- margin-bottom: 20px;
- padding: 7px;
- box-sizing: border-box;
- font-size: 17px;
- }
- table {
-   margin-top: 4em;
-   font-size: 2em;
-   border-collapse: collapse;
-   border: 1px solid black;
- }
- tr, td, th {
-   border-spacing: 2em;
-   border-collapse: collapse;
-   text-align: center;
-   border: 1px solid black;
- }
- .titulo{
-   font-family: 'Muli', sans-serif;
-   font-size: 1.5em;
- }
-
-
-</style>
-
-<center><label class="titulo">Escriba su consulta aqui</label></center>
-<form class="" action="/" method="post">
-<textarea name="query"  rows="10" cols="30">{{ text }}</textarea><br />
-  <center><button type="submit" name="button" onclick=boton()>Consultar</button></center>
-</form>
-
-
-{{#if error}}
-<div class="cajaError">
-<h1 class="msjError">ERROR</h1>
-<code><h2>{{ error }}</h2></code>
-</div>
-{{/if}}
-
-{{#if resultados}}
-<div class="cajaResultados">
-
-<h2>Resultados</h2>
-<!--<code>{{ resultados }}</code>-->
-<center>
-<table>
-  <thead class='head'>
-    {{#each columnas}}
-      {{#if this.name}}
-      <td>{{this.name}}</td>
-      {{/if}}
-    {{/each}}
-  </thead>
-  <tbody class='body'>
-    {{#each resultados}}
-    <tr>
-        {{#if this.id}}
-        <td>{{this.id}}</td>
-        {{/if}}
-        {{#if this.nombre}}
-        <td>{{this.nombre}}</td>
-        {{/if}}
-        {{#if this.comidaPreferida}}
-        <td>{{this.comidaPreferida}}</td>
-        {{/if}}
-        {{#if this.fechaNacimiento}}
-        <td>{{this.fechaNacimiento}}</td>
-        {{/if}}
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-</center>
-
-</div>
-{{/if}}
+  }
+  input,textarea {
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 17px;
+  }
+  table {
+  margin-top: 4em;
+  font-size: 2em;
+  border-collapse: collapse;
+  border: 1px solid black;
+  }
+  tr, td, th {
+  border-spacing: 2em;
+  border-collapse: collapse;
+  text-align: center;
+  border: 1px solid black;
+  }
+  .titulo{
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  }
+center
+  label.titulo Escriba su consulta aqui
+form(action='/' method='post')
+  textarea(name='query' rows='10' cols='30') {{ text }}
+  br
+  center
+    button(type='submit' name='button' onclick='boton()') Consultar
+| {{#if error}}
+.cajaError
+  h1.msjError ERROR
+  code
+    h2 {{ error }}
+| {{/if}}
+| {{#if resultados}}
+.cajaResultados
+  h2 Resultados
+  // <code>{{ resultados }}</code>
+  center
+    table
+      thead.head
+        | {{#each columnas}}
+        | {{#if this.name}}
+      td {{this.name}}
+      |       {{/if}}
+      |     {{/each}}
+      tbody.body
+        | {{#each resultados}}
+        tr
+          | {{#if this.id}}
+          td {{this.id}}
+          |         {{/if}}
+          |         {{#if this.nombre}}
+          td {{this.nombre}}
+          |         {{/if}}
+          |         {{#if this.comidaPreferida}}
+          td {{this.comidaPreferida}}
+          |         {{/if}}
+          |         {{#if this.fechaNacimiento}}
+          td {{this.fechaNacimiento}}
+          |         {{/if}}
+        |     {{/each}}
+| {{/if}}
